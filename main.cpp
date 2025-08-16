@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 class Vehicle {
     std::string Marque;
@@ -42,7 +43,7 @@ class Vehicle {
     void SetMarque(const std::string& marque) {
         Marque = marque;
     }
-    void SetMarque(const std::string& modele) {
+    void SetModele(const std::string& modele) {
         Modele = modele;
     }
     void SetAnnee(int annee) {
@@ -88,7 +89,7 @@ class garage{
         }
     }
     void SupprimerVehicle(const std::string& immatriculation) {
-        auto it = std::remove_if(vehicles.begin(), vehicles.end(), [&immatriculation](Vehicle* v) { v->immatriculation() == immatriculation; });
+        auto it = std::remove_if(vehicles.begin(), vehicles.end(), [&immatriculation](Vehicle* v) { v->immatriculation() == immatriculation;});
         if (it != vehicles.end()) {
             delete *it; 
             vehicles.erase(it, vehicles.end());
@@ -99,7 +100,7 @@ class garage{
 };
 
 
-int main(int argc,char** argv[]){
+int main(int argc,char* argv[]){
 int choix = 0;
 while (choix != 4) {
     std::cout << "=======MENU======= \n";
